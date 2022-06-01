@@ -1,0 +1,27 @@
+{
+  "name": "cypress-api-marvel",
+  "version": "1.0.0",
+  "description": "Projeto de automação na API da Marvel - Viver de Teste ",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SetubalMiguel/cypress-api-marvel.git"
+  },
+  "keywords": [
+    "nodejs",
+    "cypress",
+    "api"
+  ],
+  "author": "Miguel Setúbal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SetubalMiguel/cypress-api-marvel/issues"
+  },
+  "homepage": "https://github.com/SetubalMiguel/cypress-api-marvel#readme",
+  "devDependencies": {
+    "cypress": "^9.7.0"
+  }
+}
