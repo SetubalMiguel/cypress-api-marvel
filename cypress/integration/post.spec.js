@@ -3,8 +3,8 @@ describe('POST /characters', function () {
     before(function () {
 
         const login = {
-            email: "jonaslima2122@gmail.com",
-            password: "grniqw78@@"
+            email: "",
+            password: ""
         }
 
         cy.request({
