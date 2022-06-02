@@ -32,14 +32,71 @@ describe('POST /characters', function () {
 
         before(function () {
             cy.cadastraPersonagen(character).then(function (response) {
-                expect(response.status).to.be.equal(201)         
+                expect(response.status).to.be.equal(201)
             })
         })
 
         it('não deve cadastrar duplicado', function () {
             cy.cadastraPersonagen(character).then(function (response) {
-                expect(response.status).to.be.equal(400)  
-                expect(response.body.error).to.be.equal("Duplicate character")      
+                expect(response.status).to.be.equal(400)
+                expect(response.body.error).to.be.equal("Duplicate character")
+            })
+        })
+    })
+
+    context('Na tentativa de cadastrar um personagem', function(){
+        
+        it('se não for passado o nome, não deve concluir o cadastro', function(){
+            const character = {                
+                alias: "Feitiseira",
+                team: ["vingadores", "vila"],
+                active: true
+            }
+
+            cy.cadastraPersonagen(character).then(function (response) {
+                expect(response.status).to.be.equal(400)
+                expect(response.body.validation.body.message).to.be.equal("\"name\" is required")
+            })
+        })
+
+        it('se não for passado o codinome, não deve concluir o cadastro', function(){
+
+            const character = {
+            name: "Wanda",            
+            team: ["vingadores", "vila"],
+            active: true
+        }
+
+            cy.cadastraPersonagen(character).then(function (response) {
+                expect(response.status).to.be.equal(400)
+                expect(response.body.validation.body.message).to.be.equal("\"alias\" is required")
+            })
+        })
+
+        it('se não for passado ao menos um time, não deve concluir o cadastro', function(){
+
+            const character = {
+                name: "Wanda",
+                alias: "Feitiseira",                
+                active: true
+            }
+        
+            cy.cadastraPersonagen(character).then(function (response) {
+                expect(response.status).to.be.equal(400)
+                expect(response.body.validation.body.message).to.be.equal("\"team\" is required")
+            })
+        })
+
+        it('se não for passado se o personagem está ativo ou não, não deve concluir o cadastro', function(){
+
+            const character = {
+                name: "Wanda",
+                alias: "Feitiseira",
+                team: ["vingadores", "vila"]         
+            }        
+            cy.cadastraPersonagen(character).then(function (response) {
+                expect(response.status).to.be.equal(400)
+                expect(response.body.validation.body.message).to.be.equal("\"active\" is required")
             })
         })
     })
