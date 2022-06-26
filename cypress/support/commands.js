@@ -34,8 +34,8 @@ Cypress.Commands.add('limparAmbiente', function(){
 
 Cypress.Commands.add('login', function(){    
     const login = {
-        email: "",
-        password: ""
+        email: "jonaslima2122@gmail.com",
+        password: "grniqw78@@"
     }
 
     cy.request({
