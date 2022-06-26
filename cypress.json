@@ -1,4 +1,5 @@
 {
     "baseUrl": "https://marvel-qa-cademy.herokuapp.com",
-    "chromeWebSecurity": false
+    "chromeWebSecurity": false,
+    "projectId": "xetua2"
 }
