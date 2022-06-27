@@ -4,7 +4,8 @@
   "description": "Projeto de automação na API da Marvel - Viver de Teste ",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run"
+    "limpar": "sh ./limpar.sh",
+    "test": "npm run limpar && npx cypress run"
   },
   "repository": {
     "type": "git",

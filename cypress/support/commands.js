@@ -61,3 +61,62 @@ Cypress.Commands.add('cadastraPersonagen', function(payload){
         return response
     })
 })
+
+Cypress.Commands.add('buscarPersonagen', function(characterName){
+    cy.request({
+        method: 'GET',
+        url: '/characters',
+        qs: {name: characterName},
+        headers: {
+            Authorization: Cypress.env('token')
+        },        
+        failOnStatusCode: false 
+    }).then(function(response){
+        return response
+    })
+})
+
+Cypress.Commands.add('buscarPersonagenId', function(id){
+    cy.request({
+        method: 'GET',
+        url: '/characters/' + id,        
+        headers: {
+            Authorization: Cypress.env('token')
+        },        
+        failOnStatusCode: false 
+    }).then(function(response){
+        return response
+    })
+})
+
+Cypress.Commands.add('pegarPersonagen', function(payload){
+    cy.request({
+        method: 'GET',
+        url: '/characters',
+        headers: {
+            Authorization: Cypress.env('token')
+        },         
+        failOnStatusCode: false 
+    }).then(function(response){
+        return response
+    })
+})
+
+Cypress.Commands.add('popularBase', function(payload){
+    payload.forEach(function (c) {
+        cy.cadastraPersonagen(c)
+    })
+})
+
+Cypress.Commands.add('removerPersonagenId', function(id){
+    cy.request({
+        method: 'DELETE',
+        url: '/characters/' + id,        
+        headers: {
+            Authorization: Cypress.env('token')
+        },        
+        failOnStatusCode: false 
+    }).then(function(response){
+        return response
+    })
+})

@@ -2,11 +2,6 @@
 
 describe('POST /characters', function () {
 
-    before(function () {
-        cy.limparAmbiente()
-        cy.login()
-    })
-
     it('Deve cadastrar um personagem', function () {
         const character = {
             name: "Charles Chavier",
