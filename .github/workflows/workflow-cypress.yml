@@ -6,8 +6,8 @@ jobs:
 
   limpar:
     steps:
-      -name: Limpar Ambiente
-      -run: limpar.sh
+      - name: Limpar Ambiente
+        run: limpar.sh
 
   ui-chrome-tests:
     runs-on: ubuntu-latest
