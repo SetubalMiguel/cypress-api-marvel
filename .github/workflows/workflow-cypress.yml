@@ -5,6 +5,7 @@ on: [push]
 jobs:
 
   limpar:
+    runs-on: ubuntu-latest
     steps:
       - name: Limpar Ambiente
         run: limpar.sh
