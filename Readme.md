@@ -156,8 +156,6 @@ npx cypress run
 
 ---
 
-### Casos de Teste para o Endpoint GET /characters/id
-
 3. **Buscar Personagem pelo ID Válido**
    - **Descrição:** Deve retornar informações do personagem ao buscar pelo ID cadastrado.
    - **Pré-condição:** Um personagem (Tony Stark) deve estar cadastrado.
