@@ -47,7 +47,6 @@ cd vdt-season1-marvel-api
 npm i
 npx cypress run
 ```
-Com base no script de teste fornecido, aqui estão os casos de teste descritos de forma clara e concisa:
 
 ## 🐞 Casos de Teste para Cadastro de Personagens
 
@@ -137,4 +136,57 @@ Com base no script de teste fornecido, aqui estão os casos de teste descritos d
       - Ativo: ""
     - **Resultado Esperado:** Status 400 e mensagem de erro "\"active\" must be a boolean".
 
-Esses casos de teste cobrem as principais funcionalidades e validações do endpoint para o cadastro de personagens.
+
+## 🐞 Casos de Teste para o Endpoint GET /characters
+
+1. **Listar Personagens Cadastrados**
+   - **Descrição:** Deve retornar uma lista de personagens cadastrados.
+   - **Resultado Esperado:** 
+     - Status 200
+     - O corpo da resposta deve ser um array.
+     - O array deve conter pelo menos um personagem.
+
+2. **Buscar Personagem pelo Nome**
+   - **Descrição:** Deve retornar informações de um personagem específico ao buscar pelo nome.
+   - **Entrada:** "Wanda"
+   - **Resultado Esperado:** 
+     - Status 200
+     - O corpo da resposta deve conter exatamente 1 personagem.
+     - O nome do personagem deve ser "Wanda 1".
+
+---
+
+### Casos de Teste para o Endpoint GET /characters/id
+
+3. **Buscar Personagem pelo ID Válido**
+   - **Descrição:** Deve retornar informações do personagem ao buscar pelo ID cadastrado.
+   - **Pré-condição:** Um personagem (Tony Stark) deve estar cadastrado.
+   - **Resultado Esperado:** 
+     - Status 200
+     - O nome do personagem deve ser "Tony Stark".
+
+4. **Buscar Personagem com ID Não Cadastrado**
+   - **Descrição:** Deve retornar erro ao buscar um ID que não foi cadastrado.
+   - **Entrada:** "000000000000000000000000"
+   - **Resultado Esperado:** 
+     - Status 404.
+
+
+## 🐞 Casos de Teste para o Endpoint DELETE /characters/id
+
+1. **Remover Personagem pelo ID Válido**
+   - **Descrição:** Deve remover um personagem cadastrado ao buscar pelo ID.
+   - **Pré-condição:** Um personagem (Tony Stark) deve estar cadastrado.
+   - **Resultado Esperado:** 
+     - Status 204 (No Content) indicando que a remoção foi bem-sucedida.
+
+2. **Verificar Remoção do Personagem**
+   - **Descrição:** Após a remoção, ao buscar o personagem pelo ID, deve retornar um erro 404.
+   - **Resultado Esperado:** 
+     - Status 404 indicando que o personagem não foi encontrado.
+
+3. **Remover Personagem com ID Não Cadastrado**
+   - **Descrição:** Deve retornar erro ao tentar remover um personagem que não está cadastrado.
+   - **Entrada:** "000000000000000000000000"
+   - **Resultado Esperado:** 
+     - Status 404 indicando que o personagem não foi encontrado.
