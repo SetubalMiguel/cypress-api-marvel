@@ -188,3 +188,102 @@ npx cypress run
    - **Entrada:** "000000000000000000000000"
    - **Resultado Esperado:** 
      - Status 404 indicando que o personagem não foi encontrado.
+
+
+Para casos de testes manuais, o tempo necessário para executar todos os testes pode variar significativamente, dependendo de vários fatores, como:
+
+1. **Experiência do Testador:** Testadores mais experientes podem realizar os testes mais rapidamente.
+2. **Complexidade dos Testes:** Testes que requerem mais interações ou verificações detalhadas podem levar mais tempo.
+3. **Ambiente de Teste:** O tempo para preparar o ambiente, como configurar dados ou acessar a aplicação.
+4. **Documentação e Notas:** O tempo gasto em anotações, documentação de resultados e comunicação de falhas.
+
+A estimativa de tempo para a execução manual dos testes foi baseada em considerações práticas e experiências comuns em testes de software (e na minha experiência prática). Aqui estão os fatores que contribuíram para essa estimativa:
+
+1. **Complexidade do Caso de Teste:** Cada teste foi avaliado em termos de complexidade. Testes que envolvem uma simples verificação de resposta geralmente levam menos tempo do que aqueles que exigem múltiplas interações ou verificações de dados.
+
+2. **Experiência do Testador:** Foi considerada a média de tempo que um testador experiente leva para realizar um teste. Um testador familiarizado com a aplicação e os testes geralmente pode completar cada um em menos tempo do que um novato.
+
+### Casos de Teste: Estimativas
+
+#### 1. **POST /characters**
+- **Cadastro de um Personagem Válido**
+  - **Tempo Estimado:** 2-3 minutos.
+  
+- **Tentativa de Cadastro de Personagem Duplicado**
+  - **Tempo Estimado:** 1-2 minutos.
+  
+- **Cadastro sem Nome**
+  - **Tempo Estimado:** 1-2 minutos.
+  
+- **Cadastro sem Codinome**
+  - **Tempo Estimado:** 1-2 minutos.
+  
+- **Cadastro sem Time**
+  - **Tempo Estimado:** 1-2 minutos.
+  
+- **Cadastro sem Status Ativo**
+  - **Tempo Estimado:** 1-2 minutos.
+  
+- **Cadastro com Nome em Branco**
+  - **Tempo Estimado:** 1-2 minutos.
+  
+- **Cadastro com Codinome em Branco**
+  - **Tempo Estimado:** 1-2 minutos.
+  
+- **Cadastro com Time em Branco**
+  - **Tempo Estimado:** 1-2 minutos.
+  
+- **Cadastro com Status Ativo em Branco**
+  - **Tempo Estimado:** 1-2 minutos.
+
+**Total para os testes POST:** Aproximadamente 12 a 20 minutos.
+
+---
+
+#### 2. **GET /characters**
+- **Listar Personagens**
+  - **Tempo Estimado:** 2-3 minutos.
+  
+- **Buscar Personagem pelo Nome**
+  - **Tempo Estimado:** 1-2 minutos.
+
+**Total para os testes GET:** Aproximadamente 3 a 5 minutos.
+
+---
+
+#### 3. **GET /characters/id**
+- **Buscar Personagem pelo ID Válido**
+  - **Tempo Estimado:** 2-3 minutos.
+  
+- **Buscar Personagem com ID Não Cadastrado**
+  - **Tempo Estimado:** 1-2 minutos.
+
+**Total para os testes GET /id:** Aproximadamente 3 a 5 minutos.
+
+---
+
+#### 4. **DELETE /characters/id**
+- **Remover Personagem pelo ID Válido**
+  - **Tempo Estimado:** 2-3 minutos.
+  
+- **Verificar Remoção do Personagem**
+  - **Tempo Estimado:** 1-2 minutos.
+  
+- **Remover Personagem com ID Não Cadastrado**
+  - **Tempo Estimado:** 1-2 minutos.
+
+**Total para os testes DELETE:** Aproximadamente 4 a 7 minutos.
+
+---
+
+### Estimativa de Tempo Total
+
+- **POST /characters:** 12 a 20 minutos.
+- **GET /characters:** 3 a 5 minutos.
+- **GET /characters/id:** 3 a 5 minutos.
+- **DELETE /characters/id:** 4 a 7 minutos.
+
+### Total Geral Estimado
+
+- **Mínimo:** Aproximadamente 32 minutos.
+- **Máximo:** Aproximadamente 40 minutos
